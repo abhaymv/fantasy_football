@@ -1,9 +1,10 @@
 import csv
 import json
+import yaml
 
 
 def main():
-    with open('/Users/avarmaraja/Downloads/predraft.csv') as csvfile:
+    with open('resources/predraft.csv') as csvfile:
         reader = csv.DictReader(csvfile)
         output = list()
         for row in reader:
@@ -15,8 +16,8 @@ def main():
         output = sorted(output, key=lambda x:int(x[1]))
         output=output[60:]
         print(output)
-        file = open('dump.json', 'w')
-        json.dump(output, file, indent=4)
+        file = open('dump.yaml', 'w')
+        yaml.dump(output, file, indent=4)
 
 
 
