@@ -47,19 +47,6 @@ def main(**args):
         file = open('dump.json', 'w')
         json.dump(df.to_dict('index'), file, indent=4)
         return
-        for row in reader:
-            if True:
-                if row['T'] != '#N/A':
-                    pass
-                    output.append((row['\ufeffNAME'], row['T'], row['VAL'], row['PS']))
-        output = sorted(output, key=lambda x:float(x[2]), reverse = True)
-        output = sorted(output, key=lambda x:int(x[1]))
-        # output=output[60:]
-        plt.figure()
-
-        plt.savefig('fantasy_viz.png')
-        print(output)
-        yaml.dump(output, file, default_flow_style=False)
 
 
 
