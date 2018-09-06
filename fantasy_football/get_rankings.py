@@ -35,11 +35,12 @@ def main(**args):
         while ind < len(df):
             fig, ax1 = plt.subplots()
             s = sns.catplot('INIT', 'VAL', hue='POS',ax=ax1, data=df[ind: min(ind + 25, (len(df)))])
+            ax1.set(ylabel='Value',xlabel='Initials')
             ax2 = ax1.twinx()
-            s = sns.catplot('INIT', 'T', color='magenta', alpha=.7, ax=ax2, data=df[ind: min(ind + 25, (len(df)))])
+            s = sns.catplot('INIT', 'T', color='magenta', alpha=.55, ax=ax2, data=df[ind: min(ind + 25, (len(df)))])
             ax2.invert_yaxis()
-            ax2.set(ylabel='Tier')
-            s.set(xlabel='Initials')
+            ax2.grid(False)
+            ax2.set(ylabel='Tier', xlabel='Initials')
             fig.savefig(f'fantasy_viz{count}.png')
             count += 1
             ind += 25
